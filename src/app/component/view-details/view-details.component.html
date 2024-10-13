@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+    <a class="logo text-decoration-none">
+        <span class="logo-lg"  routerLink="">
+            <b>All Details</b>
+        </span>
+    </a>
+    <span class="toolbar-item-spacer"></span>
+    <mat-icon [routerLink]="['/login']">account_circle</mat-icon>
+</mat-toolbar>
+
+<div class="table-container">
+    <h2>Details Table</h2>
+    <button class="add-button" (click)="addDetail()">
+      <i class="fas fa-plus"></i> Add New
+    </button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of details">
+          <td>{{ detail.id }}</td>
+          <td>{{ detail.name }}</td>
+          <td>{{ detail.age }}</td>
+          <td>{{ detail.address }}</td>
+          <td>
+            <button class="icon-button update" (click)="updateDetail(detail.id)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="icon-button delete" (click)="deleteDetail(detail.id)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
